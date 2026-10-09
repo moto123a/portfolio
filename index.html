@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pavan Krishna — Senior AI Engineer</title>
+<title>Pavan Krishna — AI Engineer Portfolio</title>
 <style>
   :root {
     --bg: #0a0e1a;
@@ -21,7 +21,7 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden;
   }
-  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
   /* ---------- ANIMATION 1: floating gradient orbs ---------- */
   .orbs { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
@@ -35,7 +35,7 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero { min-height: 92vh; display: flex; align-items: center; }
+  .hero { min-height: 88vh; display: flex; align-items: center; }
   .hero .eyebrow {
     display: inline-block; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
     color: var(--accent1); border: 1px solid rgba(56,189,248,0.35); padding: 6px 16px;
@@ -48,10 +48,10 @@
     animation: shimmer 8s linear infinite;
   }
   @keyframes shimmer { to { background-position: 300% 0; } }
-  .typewriter { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--muted); min-height: 2.2em; margin-bottom: 28px; }
+  .typewriter { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--muted); min-height: 2.2em; margin-bottom: 24px; }
   .typewriter .caret { display: inline-block; width: 3px; height: 1.1em; background: var(--accent1); vertical-align: -2px; animation: blink 0.8s step-end infinite; }
   @keyframes blink { 50% { opacity: 0; } }
-  .hero p.sub { color: var(--muted); max-width: 640px; margin-bottom: 32px; }
+  .hero p.sub { color: var(--muted); max-width: 660px; margin-bottom: 32px; }
   .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
     padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none;
@@ -65,56 +65,60 @@
   .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
-  section { padding: 72px 0; }
+  section { padding: 64px 0; }
   h2 { font-size: 1.6rem; margin-bottom: 8px; }
   .section-sub { color: var(--muted); margin-bottom: 32px; }
 
   /* ---------- ANIMATION 3: animated counters ---------- */
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 32px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 32px; }
   .stat {
     background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-    padding: 24px; text-align: center; backdrop-filter: blur(8px);
+    padding: 22px; text-align: center; backdrop-filter: blur(8px);
     transition: transform 0.25s, border-color 0.25s;
   }
   .stat:hover { transform: translateY(-4px); border-color: rgba(56,189,248,0.4); }
-  .stat .num { font-size: 2rem; font-weight: 800; background: linear-gradient(90deg, var(--accent1), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .stat .label { color: var(--muted); font-size: 0.9rem; }
+  .stat .num { font-size: 1.9rem; font-weight: 800; background: linear-gradient(90deg, var(--accent1), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .label { color: var(--muted); font-size: 0.88rem; }
 
-  /* ---------- Cards ---------- */
-  .card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-    padding: 32px; margin-bottom: 24px; backdrop-filter: blur(8px);
+  /* ---------- Project case studies ---------- */
+  .project {
+    background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+    padding: 36px; margin-bottom: 28px; backdrop-filter: blur(8px);
     transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
   }
-  .card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
-  .card h3 { font-size: 1.2rem; margin-bottom: 4px; }
-  .card .company { color: var(--accent1); font-weight: 500; }
-  .card .dates { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
-  .card ul { padding-left: 20px; color: #c4cbd9; }
-  .card li { margin-bottom: 8px; }
-  .card li::marker { color: var(--accent2); }
-  .card p.desc { color: #c4cbd9; margin-bottom: 16px; }
-
-  /* ---------- Projects ---------- */
-  .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-  @media (min-width: 700px) { .project-grid { grid-template-columns: 1fr 1fr; } }
-  .project {
-    display: flex; flex-direction: column;
-  }
-  .project h3 { margin-bottom: 8px; }
+  .project:hover { transform: translateY(-4px); border-color: rgba(56,189,248,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+  .project .kicker { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent3); margin-bottom: 10px; }
+  .project h3 { font-size: 1.45rem; margin-bottom: 14px; }
   .project h3 a { color: var(--text); text-decoration: none; }
   .project h3 a:hover { color: var(--accent1); }
-  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .qa { margin-bottom: 14px; }
+  .qa .q { font-weight: 700; color: var(--accent1); font-size: 0.92rem; margin-bottom: 4px; }
+  .qa .a { color: #c4cbd9; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
   .tags span {
     background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3);
     color: #ddd6fe; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
   }
-  .repo-link {
-    margin-top: auto; padding-top: 12px; color: var(--accent1); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  .proj-links { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+  .proj-links a { color: var(--accent1); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .proj-links a:hover { text-decoration: underline; }
+  .live-badge {
+    display: inline-block; background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.4);
+    color: var(--accent3); font-size: 0.78rem; font-weight: 700; padding: 3px 12px; border-radius: 20px;
+    margin-left: 10px; vertical-align: middle;
   }
-  .repo-link:hover { text-decoration: underline; }
 
-  /* ---------- Skills ---------- */
+  /* ---------- Compact resume sections ---------- */
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; margin-bottom: 20px; backdrop-filter: blur(8px);
+  }
+  .card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .card .company { color: var(--accent1); font-weight: 500; }
+  .card .dates { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+  .card ul { padding-left: 20px; color: #c4cbd9; }
+  .card li { margin-bottom: 6px; }
+  .card li::marker { color: var(--accent2); }
   .skills { display: flex; flex-wrap: wrap; gap: 10px; }
   .skills span {
     background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.25);
@@ -123,7 +127,6 @@
   }
   .skills span:hover { transform: scale(1.08); background: rgba(56,189,248,0.18); }
 
-  /* ---------- Contact ---------- */
   .contact-card { text-align: center; padding: 56px 32px; }
   .contact-card a { color: var(--accent1); }
   footer { padding: 32px 0 48px; text-align: center; color: var(--muted); font-size: 0.88rem; }
@@ -139,92 +142,143 @@
 
 <header class="hero">
   <div class="container">
-    <span class="eyebrow">Open to Senior AI Engineer roles</span>
+    <span class="eyebrow">AI Engineer · Portfolio</span>
     <h1>Hi, I'm <span class="gradient-text">Pavan Krishna</span></h1>
     <div class="typewriter"><span id="typed"></span><span class="caret"></span></div>
-    <p class="sub">I build LLM systems that survive production — RAG pipelines, AI agents, fine-tuned models, and the MLOps around them. Chicago based, shipping at Renasant Bank and previously Wipro.</p>
+    <p class="sub">I build AI that ships — real-time interview copilots, document intelligence pipelines, and production LLM systems. Below are the projects, not just the job titles.</p>
     <div class="btn-row">
-      <a class="btn primary" href="mailto:pavankrish757@gmail.com">Get in touch</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/pavan-krishna-pillutla-85887b1b5/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn primary" href="#projects">See the work</a>
       <a class="btn ghost" href="https://github.com/moto123a" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/pavan-krishna-pillutla-85887b1b5/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="stats">
-      <div class="stat"><div class="num"><span class="count" data-target="3">0</span>+</div><div class="label">Years Experience</div></div>
-      <div class="stat"><div class="num"><span class="count" data-target="6">0</span></div><div class="label">AI Projects Shipped</div></div>
-      <div class="stat"><div class="num"><span class="count" data-target="20">0</span>+</div><div class="label">AI/ML Skills</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="4">0</span></div><div class="label">Featured Projects</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="155">0</span>+</div><div class="label">Commits on Main Project</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="3">0</span>+</div><div class="label">Years Building AI</div></div>
     </div>
   </div>
 </header>
 
 <main class="container">
 
-  <section class="reveal">
-    <h2>About</h2>
-    <p class="section-sub">Production LLM systems, RAG &amp; agentic AI</p>
-    <p style="color:#c4cbd9; margin-bottom:16px;">I'm a Senior AI Engineer with 3+ years building LLM systems that run in production — not demos, real systems used by banks and large companies.</p>
-    <p style="color:#c4cbd9; margin-bottom:16px;">What I do: fine-tune language models, build RAG pipelines and AI agents with LangChain and LlamaIndex, speed up GPU inference with vLLM, and deploy everything on Kubernetes across Azure, AWS, and GCP. I also set up everything around it — CI/CD, model tracking with MLflow, monitoring, and safe release practices.</p>
-    <p style="color:#c4cbd9;">I've done this at Renasant Bank (banking) and Wipro (enterprise) — owning projects start to finish, reviewing code, mentoring other engineers, and working directly with product teams to ship what the business needs.</p>
-  </section>
+  <section id="projects" class="reveal">
+    <h2>Featured Projects</h2>
+    <p class="section-sub">Real problems, real code, real deployments</p>
 
-  <section class="reveal">
-    <h2>Projects</h2>
-    <p class="section-sub">Real code, running in the wild</p>
-    <div class="project-grid">
-
-      <div class="card project">
-        <h3><a href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">CopilotX AI — Developer Assistance Platform</a></h3>
-        <p class="desc">Full-stack AI developer-assistance platform. Next.js + Tailwind frontend with a Java backend, Firebase integration, Docker packaging, and CI/CD — 155 commits of production web app.</p>
-        <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Java</span><span>Firebase</span><span>Docker</span><span>CI/CD</span></div>
-        <a class="repo-link" href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">View on GitHub →</a>
+    <div class="project">
+      <div class="kicker">Flagship · Live in production</div>
+      <h3><a href="https://replysis.com" target="_blank" rel="noopener">Replysis — Real-Time AI Interview Copilot</a><span class="live-badge">● LIVE</span></h3>
+      <div class="qa">
+        <div class="q">The problem</div>
+        <div class="a">Job seekers freeze in live interviews. Existing prep tools make you practice alone — none help you <em>during</em> the actual interview.</div>
       </div>
-
-      <div class="card project">
-        <h3><a href="https://github.com/moto123a/interview-copilot-mac" target="_blank" rel="noopener">Interview Copilot — Mac, Windows &amp; Phone</a></h3>
-        <p class="desc">Real-time AI interview preparation apps across platforms: native Mac client in Swift, Windows app, and a phone client — instant AI assistance during live interviews.</p>
-        <div class="tags"><span>Swift</span><span>C#</span><span>JavaScript</span><span>Real-time AI</span></div>
-        <a class="repo-link" href="https://github.com/moto123a/interview-copilot-mac" target="_blank" rel="noopener">View on GitHub →</a>
+      <div class="qa">
+        <div class="q">What I built</div>
+        <div class="a">An AI copilot that listens to a live interview and serves instant answers in real time — the product's core differentiator is response speed. Native clients for Mac (Swift), Windows, and phone, backed by a Next.js web platform, a Java backend, and Firebase realtime infrastructure, with Stripe payments.</div>
       </div>
-
-      <div class="card project">
-        <h3><a href="https://github.com/moto123a/coopilotx-pdf-service" target="_blank" rel="noopener">PDF Ingestion Microservice</a></h3>
-        <p class="desc">Dockerized Node.js microservice for PDF document ingestion and processing — the document pipeline feeding the CopilotX AI platform's knowledge base.</p>
-        <div class="tags"><span>Node.js</span><span>Docker</span><span>Document AI</span><span>Microservice</span></div>
-        <a class="repo-link" href="https://github.com/moto123a/coopilotx-pdf-service" target="_blank" rel="noopener">View on GitHub →</a>
+      <div class="qa">
+        <div class="q">Outcome</div>
+        <div class="a">Live product at replysis.com with paying tiers (Pro $34.99/mo, Max $79.99/mo). Full stack designed, built, and shipped end to end.</div>
       </div>
-
-      <div class="card project">
-        <h3><a href="https://github.com/moto123a/real-time-payment-fraud-detection-platform" target="_blank" rel="noopener">Real-time Fraud Detection Platform</a></h3>
-        <p class="desc">Enterprise real-time payment fraud detection: Kafka event streaming, Spark Structured Streaming, Airflow orchestration, and Iceberg lakehouse with Redshift-style marts.</p>
-        <div class="tags"><span>Python</span><span>Kafka</span><span>Spark</span><span>Airflow</span><span>ML</span></div>
-        <a class="repo-link" href="https://github.com/moto123a/real-time-payment-fraud-detection-platform" target="_blank" rel="noopener">View on GitHub →</a>
+      <div class="tags"><span>Swift</span><span>Next.js</span><span>Java</span><span>Firebase</span><span>Real-time AI</span><span>Stripe</span></div>
+      <div class="proj-links">
+        <a href="https://replysis.com" target="_blank" rel="noopener">Try the live demo →</a>
+        <a href="https://github.com/moto123a/interview-copilot-mac" target="_blank" rel="noopener">Mac client on GitHub →</a>
+        <a href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">Web platform on GitHub →</a>
       </div>
-
     </div>
+
+    <div class="project">
+      <div class="kicker">Full-stack AI platform</div>
+      <h3><a href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">CopilotX AI — Developer Assistance Platform</a></h3>
+      <div class="qa">
+        <div class="q">The problem</div>
+        <div class="a">Developers lose hours to repetitive coding tasks and context-switching across docs, code, and tools.</div>
+      </div>
+      <div class="qa">
+        <div class="q">What I built</div>
+        <div class="a">A full-stack AI developer-assistance platform: Next.js + Tailwind frontend, Java backend, Firebase integration — Docker-packaged with CI/CD, 155+ commits of production web application.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Outcome</div>
+        <div class="a">Production-grade codebase with automated builds, containerized deployment, and a working web app.</div>
+      </div>
+      <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Java</span><span>Firebase</span><span>Docker</span><span>CI/CD</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">Frontend repo →</a>
+        <a href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform-backend" target="_blank" rel="noopener">Backend repo →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="kicker">Document intelligence</div>
+      <h3><a href="https://github.com/moto123a/coopilotx-pdf-service" target="_blank" rel="noopener">PDF Ingestion Microservice</a></h3>
+      <div class="qa">
+        <div class="q">The problem</div>
+        <div class="a">AI assistants are only as good as the documents they can read. Ingesting messy real-world PDFs reliably is its own engineering problem.</div>
+      </div>
+      <div class="qa">
+        <div class="q">What I built</div>
+        <div class="a">A Dockerized Node.js microservice that ingests and processes PDF documents — the document pipeline feeding the AI platform's knowledge base, the same class of problem as production RAG ingestion.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Outcome</div>
+        <div class="a">Containerized service handling the messy first mile of document AI: intake, parsing, and processing.</div>
+      </div>
+      <div class="tags"><span>Node.js</span><span>Docker</span><span>Document AI</span><span>Microservice</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/moto123a/coopilotx-pdf-service" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="kicker">ML systems</div>
+      <h3><a href="https://github.com/moto123a/real-time-payment-fraud-detection-platform" target="_blank" rel="noopener">Real-Time Payment Fraud Detection</a></h3>
+      <div class="qa">
+        <div class="q">The problem</div>
+        <div class="a">Payment fraud has to be caught in milliseconds, on streaming data — batch models are too slow to stop it.</div>
+      </div>
+      <div class="qa">
+        <div class="q">What I built</div>
+        <div class="a">An enterprise-style streaming ML platform: Kafka event ingestion, Spark Structured Streaming, Airflow orchestration, Iceberg lakehouse, and Redshift-style marts for fraud analytics.</div>
+      </div>
+      <div class="qa">
+        <div class="q">Outcome</div>
+        <div class="a">End-to-end real-time data + ML platform covering streaming, orchestration, storage, and analytics layers.</div>
+      </div>
+      <div class="tags"><span>Python</span><span>Kafka</span><span>Spark</span><span>Airflow</span><span>ML</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/moto123a/real-time-payment-fraud-detection-platform" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+    </div>
+
   </section>
 
   <section class="reveal">
-    <h2>Experience</h2>
-    <p class="section-sub">Where I've shipped</p>
+    <h2>Background</h2>
+    <p class="section-sub">The short version</p>
     <div class="card">
       <h3>Senior AI Engineer <span class="company">— Renasant Bank (Contract)</span></h3>
       <p class="dates">Feb 2025 – Present · Chicago, Illinois</p>
       <ul>
-        <li>Lead AI engineering, owning the full lifecycle of production LLM systems — from model development and fine-tuning to deployment on Azure Kubernetes Service.</li>
-        <li>Built RAG and AI agent systems with LangChain and LlamaIndex: document ingestion, chunking, embeddings, and vector search, shipped as tested APIs with monitoring in place.</li>
-        <li>Fine-tuned language models using Hugging Face and PyTorch (LoRA/PEFT); sped up GPU inference with vLLM batching, quantization, and mixed precision.</li>
-        <li>Set up CI/CD pipelines (GitHub Actions, Azure DevOps) for Docker/Kubernetes services; tracked models with MLflow; ran staged rollouts across dev, staging, and production.</li>
-        <li>Worked with product, risk, and engineering teams to turn banking requirements into shipped features; led architecture decisions, code reviews, and mentored engineers.</li>
+        <li>Lead AI engineering for production LLM systems on Azure Kubernetes Service.</li>
+        <li>RAG and AI agents with LangChain/LlamaIndex; LLM fine-tuning (LoRA/PEFT); vLLM inference optimization.</li>
+        <li>CI/CD, MLflow, staged rollouts; architecture decisions, code reviews, mentoring.</li>
       </ul>
     </div>
     <div class="card">
       <h3>AI Engineer <span class="company">— Wipro, India</span></h3>
       <p class="dates">Dec 2021 – Aug 2023 · India</p>
       <ul>
-        <li>Built machine learning and early generative AI models in Python with PyTorch and Hugging Face — data preparation, transformer experimentation, training, and evaluation.</li>
-        <li>Improved training with hyperparameter tuning, GPU acceleration, and mixed precision, tracking experiments for reproducibility.</li>
-        <li>Deployed models in Docker containers on Kubernetes; built inference APIs with monitoring, logging, and integration tests.</li>
-        <li>Built data and feature pipelines for structured and unstructured data, including prototypes for embeddings and vector search.</li>
-        <li>Reviewed code, set up CI/CD automation, and worked with product and engineering teams to ship AI features from prototype to production.</li>
+        <li>ML and generative AI models in Python/PyTorch/Hugging Face; training, tuning, evaluation.</li>
+        <li>Docker/Kubernetes deployments, inference APIs, data and feature pipelines.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Education</h3>
+      <ul>
+        <li>Master's in Computer Science — Roosevelt University, Chicago (Sep 2023 – Dec 2024)</li>
+        <li>B.Tech, Computer Science — Hindustan University, Chennai, India (2018 – May 2022)</li>
       </ul>
     </div>
   </section>
@@ -237,19 +291,6 @@
       <span>LLM Fine-tuning</span><span>RAG</span><span>Agentic AI</span><span>vLLM</span><span>Kubernetes</span>
       <span>Docker</span><span>GPU Optimization</span><span>MLOps</span><span>CI/CD</span><span>MLflow</span>
       <span>Azure</span><span>AWS</span><span>GCP</span><span>Machine Learning</span><span>NLP</span>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <h2>Education</h2>
-    <p class="section-sub">The background</p>
-    <div class="card">
-      <h3>Master's in Computer Science <span class="company">— Roosevelt University, Chicago</span></h3>
-      <p class="dates">Sep 2023 – Dec 2024</p>
-    </div>
-    <div class="card">
-      <h3>B.Tech, Computer Science <span class="company">— Hindustan University, Chennai, India</span></h3>
-      <p class="dates">2018 – May 2022</p>
     </div>
   </section>
 
@@ -273,10 +314,10 @@
 <script>
 // ---------- ANIMATION 1: typewriter ----------
 const phrases = [
-  "Senior AI Engineer",
-  "I build production LLM systems.",
-  "RAG pipelines & AI agents.",
-  "Fine-tuning, vLLM & MLOps."
+  "I build AI that ships.",
+  "Real-time interview copilots.",
+  "Document intelligence pipelines.",
+  "Production LLM systems."
 ];
 const typedEl = document.getElementById("typed");
 let pi = 0, ci = 0, deleting = false;
