@@ -4,32 +4,208 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pavan Krishna — Senior AI Engineer</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --card: rgba(255,255,255,0.04);
+    --border: rgba(255,255,255,0.09);
+    --text: #e8ecf4;
+    --muted: #8b94a7;
+    --accent1: #38bdf8;
+    --accent2: #a78bfa;
+    --accent3: #34d399;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- ANIMATION 1: floating gradient orbs ---------- */
+  .orbs { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.35; animation: drift 18s ease-in-out infinite alternate; }
+  .orb.one   { width: 420px; height: 420px; background: #0ea5e9; top: -120px; left: -100px; }
+  .orb.two   { width: 380px; height: 380px; background: #8b5cf6; top: 30%; right: -140px; animation-delay: -6s; }
+  .orb.three { width: 340px; height: 340px; background: #10b981; bottom: -120px; left: 30%; animation-delay: -12s; }
+  @keyframes drift {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(60px, 40px) scale(1.15); }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { min-height: 92vh; display: flex; align-items: center; }
+  .hero .eyebrow {
+    display: inline-block; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent1); border: 1px solid rgba(56,189,248,0.35); padding: 6px 16px;
+    border-radius: 30px; margin-bottom: 24px;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.15; margin-bottom: 12px; }
+  .gradient-text {
+    background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3), var(--accent1));
+    background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 8s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 300% 0; } }
+  .typewriter { font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--muted); min-height: 2.2em; margin-bottom: 28px; }
+  .typewriter .caret { display: inline-block; width: 3px; height: 1.1em; background: var(--accent1); vertical-align: -2px; animation: blink 0.8s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .hero p.sub { color: var(--muted); max-width: 640px; margin-bottom: 32px; }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 28px; border-radius: 10px; font-weight: 600; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn.primary { background: linear-gradient(90deg, var(--accent1), var(--accent2)); color: #0a0e1a; }
+  .btn.ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(56,189,248,0.25); }
+
+  /* ---------- ANIMATION 2: scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  section { padding: 72px 0; }
+  h2 { font-size: 1.6rem; margin-bottom: 8px; }
+  .section-sub { color: var(--muted); margin-bottom: 32px; }
+
+  /* ---------- ANIMATION 3: animated counters ---------- */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 32px; }
+  .stat {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 24px; text-align: center; backdrop-filter: blur(8px);
+    transition: transform 0.25s, border-color 0.25s;
+  }
+  .stat:hover { transform: translateY(-4px); border-color: rgba(56,189,248,0.4); }
+  .stat .num { font-size: 2rem; font-weight: 800; background: linear-gradient(90deg, var(--accent1), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .label { color: var(--muted); font-size: 0.9rem; }
+
+  /* ---------- Cards ---------- */
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 32px; margin-bottom: 24px; backdrop-filter: blur(8px);
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.35); }
+  .card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+  .card .company { color: var(--accent1); font-weight: 500; }
+  .card .dates { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+  .card ul { padding-left: 20px; color: #c4cbd9; }
+  .card li { margin-bottom: 8px; }
+  .card li::marker { color: var(--accent2); }
+  .card p.desc { color: #c4cbd9; margin-bottom: 16px; }
+
+  /* ---------- Projects ---------- */
+  .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 700px) { .project-grid { grid-template-columns: 1fr 1fr; } }
+  .project {
+    display: flex; flex-direction: column;
+  }
+  .project h3 { margin-bottom: 8px; }
+  .project h3 a { color: var(--text); text-decoration: none; }
+  .project h3 a:hover { color: var(--accent1); }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  .tags span {
+    background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3);
+    color: #ddd6fe; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500;
+  }
+  .repo-link {
+    margin-top: auto; padding-top: 12px; color: var(--accent1); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  }
+  .repo-link:hover { text-decoration: underline; }
+
+  /* ---------- Skills ---------- */
+  .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills span {
+    background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.25);
+    color: #bae6fd; padding: 8px 18px; border-radius: 30px; font-size: 0.92rem; font-weight: 500;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .skills span:hover { transform: scale(1.08); background: rgba(56,189,248,0.18); }
+
+  /* ---------- Contact ---------- */
+  .contact-card { text-align: center; padding: 56px 32px; }
+  .contact-card a { color: var(--accent1); }
+  footer { padding: 32px 0 48px; text-align: center; color: var(--muted); font-size: 0.88rem; }
+</style>
 </head>
 <body>
+
+<div class="orbs">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+
 <header class="hero">
   <div class="container">
-    <h1>Pavan Krishna</h1>
-    <p class="tagline">Senior AI Engineer | Production LLM Systems, RAG &amp; Agentic AI | PyTorch, Kubernetes, MLOps</p>
-    <p class="location">Chicago, Illinois</p>
-    <div class="links">
-      <a href="https://www.linkedin.com/in/pavan-krishna-pillutla-85887b1b5/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="mailto:pavankrish757@gmail.com">Email</a>
+    <span class="eyebrow">Open to Senior AI Engineer roles</span>
+    <h1>Hi, I'm <span class="gradient-text">Pavan Krishna</span></h1>
+    <div class="typewriter"><span id="typed"></span><span class="caret"></span></div>
+    <p class="sub">I build LLM systems that survive production — RAG pipelines, AI agents, fine-tuned models, and the MLOps around them. Chicago based, shipping at Renasant Bank and previously Wipro.</p>
+    <div class="btn-row">
+      <a class="btn primary" href="mailto:pavankrish757@gmail.com">Get in touch</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/pavan-krishna-pillutla-85887b1b5/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/moto123a" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num"><span class="count" data-target="3">0</span>+</div><div class="label">Years Experience</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="6">0</span></div><div class="label">AI Projects Shipped</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="20">0</span>+</div><div class="label">AI/ML Skills</div></div>
     </div>
   </div>
 </header>
 
 <main class="container">
-  <section>
+
+  <section class="reveal">
     <h2>About</h2>
-    <p>I'm a Senior AI Engineer with 3+ years building LLM systems that run in production — not demos, real systems used by banks and large companies.</p>
-    <p>What I do: fine-tune language models, build RAG pipelines and AI agents with LangChain and LlamaIndex, speed up GPU inference with vLLM, and deploy everything on Kubernetes across Azure, AWS, and GCP. I also set up everything around it — CI/CD, model tracking with MLflow, monitoring, and safe release practices.</p>
-    <p>I've done this at Renasant Bank (banking) and Wipro (enterprise) — owning projects start to finish, reviewing code, mentoring other engineers, and working directly with product teams to ship what the business needs.</p>
+    <p class="section-sub">Production LLM systems, RAG &amp; agentic AI</p>
+    <p style="color:#c4cbd9; margin-bottom:16px;">I'm a Senior AI Engineer with 3+ years building LLM systems that run in production — not demos, real systems used by banks and large companies.</p>
+    <p style="color:#c4cbd9; margin-bottom:16px;">What I do: fine-tune language models, build RAG pipelines and AI agents with LangChain and LlamaIndex, speed up GPU inference with vLLM, and deploy everything on Kubernetes across Azure, AWS, and GCP. I also set up everything around it — CI/CD, model tracking with MLflow, monitoring, and safe release practices.</p>
+    <p style="color:#c4cbd9;">I've done this at Renasant Bank (banking) and Wipro (enterprise) — owning projects start to finish, reviewing code, mentoring other engineers, and working directly with product teams to ship what the business needs.</p>
   </section>
 
-  <section>
+  <section class="reveal">
+    <h2>Projects</h2>
+    <p class="section-sub">Real code, running in the wild</p>
+    <div class="project-grid">
+
+      <div class="card project">
+        <h3><a href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">CopilotX AI — Developer Assistance Platform</a></h3>
+        <p class="desc">Full-stack AI developer-assistance platform. Next.js + Tailwind frontend with a Java backend, Firebase integration, Docker packaging, and CI/CD — 155 commits of production web app.</p>
+        <div class="tags"><span>Next.js</span><span>TypeScript</span><span>Java</span><span>Firebase</span><span>Docker</span><span>CI/CD</span></div>
+        <a class="repo-link" href="https://github.com/moto123a/AI-Powered-Developer-Assistance-Platform" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="card project">
+        <h3><a href="https://github.com/moto123a/interview-copilot-mac" target="_blank" rel="noopener">Interview Copilot — Mac, Windows &amp; Phone</a></h3>
+        <p class="desc">Real-time AI interview preparation apps across platforms: native Mac client in Swift, Windows app, and a phone client — instant AI assistance during live interviews.</p>
+        <div class="tags"><span>Swift</span><span>C#</span><span>JavaScript</span><span>Real-time AI</span></div>
+        <a class="repo-link" href="https://github.com/moto123a/interview-copilot-mac" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="card project">
+        <h3><a href="https://github.com/moto123a/coopilotx-pdf-service" target="_blank" rel="noopener">PDF Ingestion Microservice</a></h3>
+        <p class="desc">Dockerized Node.js microservice for PDF document ingestion and processing — the document pipeline feeding the CopilotX AI platform's knowledge base.</p>
+        <div class="tags"><span>Node.js</span><span>Docker</span><span>Document AI</span><span>Microservice</span></div>
+        <a class="repo-link" href="https://github.com/moto123a/coopilotx-pdf-service" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <div class="card project">
+        <h3><a href="https://github.com/moto123a/real-time-payment-fraud-detection-platform" target="_blank" rel="noopener">Real-time Fraud Detection Platform</a></h3>
+        <p class="desc">Enterprise real-time payment fraud detection: Kafka event streaming, Spark Structured Streaming, Airflow orchestration, and Iceberg lakehouse with Redshift-style marts.</p>
+        <div class="tags"><span>Python</span><span>Kafka</span><span>Spark</span><span>Airflow</span><span>ML</span></div>
+        <a class="repo-link" href="https://github.com/moto123a/real-time-payment-fraud-detection-platform" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="reveal">
     <h2>Experience</h2>
-    <div class="job">
+    <p class="section-sub">Where I've shipped</p>
+    <div class="card">
       <h3>Senior AI Engineer <span class="company">— Renasant Bank (Contract)</span></h3>
       <p class="dates">Feb 2025 – Present · Chicago, Illinois</p>
       <ul>
@@ -40,7 +216,7 @@
         <li>Worked with product, risk, and engineering teams to turn banking requirements into shipped features; led architecture decisions, code reviews, and mentored engineers.</li>
       </ul>
     </div>
-    <div class="job">
+    <div class="card">
       <h3>AI Engineer <span class="company">— Wipro, India</span></h3>
       <p class="dates">Dec 2021 – Aug 2023 · India</p>
       <ul>
@@ -53,8 +229,9 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>Skills</h2>
+    <p class="section-sub">The toolbox</p>
     <div class="skills">
       <span>Python</span><span>PyTorch</span><span>Hugging Face</span><span>LangChain</span><span>LlamaIndex</span>
       <span>LLM Fine-tuning</span><span>RAG</span><span>Agentic AI</span><span>vLLM</span><span>Kubernetes</span>
@@ -63,29 +240,81 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <h2>Education</h2>
-    <div class="job">
+    <p class="section-sub">The background</p>
+    <div class="card">
       <h3>Master's in Computer Science <span class="company">— Roosevelt University, Chicago</span></h3>
       <p class="dates">Sep 2023 – Dec 2024</p>
     </div>
-    <div class="job">
+    <div class="card">
       <h3>B.Tech, Computer Science <span class="company">— Hindustan University, Chennai, India</span></h3>
       <p class="dates">2018 – May 2022</p>
     </div>
   </section>
 
-  <section>
-    <h2>Contact</h2>
-    <p>Open to Senior AI Engineer roles — Chicago / remote.</p>
-    <p><a href="mailto:pavankrish757@gmail.com">pavankrish757@gmail.com</a> · +1 312-488-7432</p>
+  <section class="reveal">
+    <div class="card contact-card">
+      <h2>Let's build something</h2>
+      <p class="section-sub">Open to Senior AI Engineer roles — Chicago / remote</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a class="btn primary" href="mailto:pavankrish757@gmail.com">pavankrish757@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/pavan-krishna-pillutla-85887b1b5/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
   </section>
+
 </main>
 
 <footer>
-  <div class="container">
-    <p>© 2026 Pavan Krishna</p>
-  </div>
+  <div class="container">© 2026 Pavan Krishna · Built with care</div>
 </footer>
+
+<script>
+// ---------- ANIMATION 1: typewriter ----------
+const phrases = [
+  "Senior AI Engineer",
+  "I build production LLM systems.",
+  "RAG pipelines & AI agents.",
+  "Fine-tuning, vLLM & MLOps."
+];
+const typedEl = document.getElementById("typed");
+let pi = 0, ci = 0, deleting = false;
+function type() {
+  const word = phrases[pi];
+  typedEl.textContent = word.slice(0, ci);
+  let speed = deleting ? 35 : 70;
+  if (!deleting && ci === word.length) { speed = 1600; deleting = true; }
+  else if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; speed = 400; }
+  ci += deleting ? -1 : 1;
+  setTimeout(type, speed);
+}
+type();
+
+// ---------- ANIMATION 2: scroll reveal ----------
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// ---------- ANIMATION 3: animated counters ----------
+const counters = document.querySelectorAll(".count");
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.target;
+    const dur = 1200, start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    cObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(el => cObs.observe(el));
+</script>
+
 </body>
 </html>
