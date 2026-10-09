@@ -1,0 +1,21 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.hero { background: #0f172a; color: #fff; padding: 72px 0 56px; }
+.hero h1 { font-size: 2.6rem; margin-bottom: 8px; }
+.tagline { font-size: 1.1rem; color: #cbd5e1; margin-bottom: 6px; }
+.location { color: #94a3b8; margin-bottom: 20px; }
+.links a { display: inline-block; margin-right: 12px; padding: 8px 20px; border: 1px solid #38bdf8; color: #38bdf8; text-decoration: none; border-radius: 6px; font-weight: 600; }
+.links a:hover { background: #38bdf8; color: #0f172a; }
+main section { padding: 40px 0; border-bottom: 1px solid #e5e7eb; }
+main section:last-child { border-bottom: none; }
+h2 { font-size: 1.4rem; margin-bottom: 16px; color: #0f172a; }
+.job { margin-bottom: 28px; }
+.job h3 { font-size: 1.1rem; }
+.company { font-weight: 400; color: #475569; }
+.dates { color: #64748b; font-size: 0.95rem; margin-bottom: 10px; }
+ul { padding-left: 22px; }
+li { margin-bottom: 8px; }
+.skills span { display: inline-block; background: #e0f2fe; color: #0c4a6e; padding: 6px 14px; border-radius: 20px; margin: 0 8px 10px 0; font-size: 0.92rem; font-weight: 500; }
+a { color: #0284c7; }
+footer { padding: 28px 0; color: #94a3b8; font-size: 0.9rem; text-align: center; }
