@@ -47,13 +47,16 @@
   /* ---------- Hero ---------- */
   .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; }
   .hero-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
-  .photo-ring {
-    width: 220px; height: 220px; border-radius: 50%; padding: 5px; flex-shrink: 0;
+  .monogram {
+    width: 120px; height: 120px; border-radius: 32px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.6rem; font-weight: 800; color: #0a0e1a;
     background: linear-gradient(135deg, var(--accent1), var(--accent2), var(--accent3));
-    animation: ringspin 8s linear infinite; background-size: 300% 300%;
+    background-size: 300% 300%;
+    animation: ringspin 8s linear infinite;
+    box-shadow: 0 12px 40px rgba(56,189,248,0.3);
   }
   @keyframes ringspin { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-  .photo-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; border: 4px solid var(--bg); }
   .hero-text { flex: 1; min-width: 280px; }
   .hero h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.12; margin-bottom: 10px; }
   .gradient-text {
@@ -81,9 +84,7 @@
   .section-sub { color: var(--muted); margin-bottom: 36px; }
 
   /* ---------- About ---------- */
-  .about-grid { display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap; }
-  .about-grid img { width: 200px; height: 200px; border-radius: 24px; object-fit: cover; flex-shrink: 0; border: 1px solid var(--border); }
-  .about-grid .bio { flex: 1; min-width: 280px; color: #c4cbd9; }
+  .about-grid { color: #c4cbd9; }
   .about-grid .bio p { margin-bottom: 16px; }
   .about-grid .bio .hello { font-size: 1.25rem; color: var(--text); font-weight: 700; margin-bottom: 12px; }
 
@@ -213,11 +214,11 @@
 <header class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div class="photo-ring"><img src="profile.jpg" alt="Pavan Krishna"></div>
+      <div class="monogram">PK</div>
       <div class="hero-text">
         <h1>Hi, I'm <span class="gradient-text">Pavan Krishna</span></h1>
         <div class="typewriter"><span id="typed"></span><span class="caret"></span></div>
-        <p class="sub">Senior AI Engineer in Chicago. I build AI that ships — real-time copilots, document intelligence, production LLM systems.</p>
+        <p class="sub">Senior AI Engineer in Chicago. I build AI that ships — interview prep platforms, document intelligence, production LLM systems.</p>
         <div class="btn-row">
           <a class="btn primary" href="#projects">See my work</a>
           <a class="btn ghost" href="https://github.com/moto123a" target="_blank" rel="noopener">GitHub</a>
@@ -240,11 +241,10 @@
     <h2>About</h2>
     <p class="section-sub">Here is a little background</p>
     <div class="about-grid">
-      <img src="profile.jpg" alt="Pavan Krishna">
       <div class="bio">
         <div class="hello">Hey 👋 I'm Pavan.</div>
         <p>I'm a Senior AI Engineer based in Chicago. I did my B.Tech in Computer Science in India, then came to the US for my Master's in Computer Science at Roosevelt University — and I never left.</p>
-        <p>I love building AI that people actually use: real-time interview copilots, document intelligence pipelines, LLM systems that survive production. I run my own product too — <strong>Replysis</strong>, an AI copilot that helps you during live interviews, with instant answers as the whole point.</p>
+        <p>I love building AI that people actually use: interview preparation tools, document intelligence pipelines, LLM systems that survive production. I run my own product too — <strong>Replysis</strong>, an AI interview prep platform that runs mock interviews and gives instant feedback on your answers.</p>
         <p>Day to day you'll find me fine-tuning models, building RAG pipelines with LangChain, squeezing more out of GPUs with vLLM, or shipping the MLOps around it all on Kubernetes.</p>
       </div>
     </div>
@@ -256,20 +256,20 @@
 
     <div class="project">
       <div class="kicker">Flagship · Live in production</div>
-      <h3><a href="https://replysis.com" target="_blank" rel="noopener">Replysis — Real-Time AI Interview Copilot</a><span class="live-badge">● LIVE</span></h3>
+      <h3><a href="https://replysis.com" target="_blank" rel="noopener">Replysis — AI Interview Preparation Platform</a><span class="live-badge">● LIVE</span></h3>
       <div class="qa">
         <div class="q">The problem</div>
-        <div class="a">Job seekers freeze in live interviews. Existing prep tools make you practice alone — none help you <em>during</em> the actual interview.</div>
+        <div class="a">Job seekers walk into interviews underprepared. Human mock interviews are expensive and hard to schedule — and most prep tools give feedback too slowly to be useful.</div>
       </div>
       <div class="qa">
         <div class="q">What I built</div>
-        <div class="a">An AI copilot that listens to a live interview and serves instant answers in real time — response speed is the product's core differentiator. Native clients for Mac (Swift), Windows, and phone, backed by a Next.js web platform, a Java backend, and Firebase realtime infrastructure, with Stripe payments.</div>
+        <div class="a">An AI interview prep platform that runs realistic mock interviews and gives instant feedback on every answer — response speed is the product's core differentiator. Native clients for Mac (Swift), Windows, and phone, backed by a Next.js web platform, a Java backend, and Firebase realtime infrastructure, with Stripe payments.</div>
       </div>
       <div class="qa">
         <div class="q">Outcome</div>
         <div class="a">Live product at replysis.com with paying tiers. Designed, built, and shipped end to end.</div>
       </div>
-      <div class="tags"><span>Swift</span><span>Next.js</span><span>Java</span><span>Firebase</span><span>Real-time AI</span><span>Stripe</span></div>
+      <div class="tags"><span>Swift</span><span>Next.js</span><span>Java</span><span>Firebase</span><span>AI Coaching</span><span>Stripe</span></div>
       <div class="proj-links">
         <a href="https://replysis.com" target="_blank" rel="noopener">Try the live demo →</a>
         <a href="https://github.com/moto123a/interview-copilot-mac" target="_blank" rel="noopener">Mac client on GitHub →</a>
